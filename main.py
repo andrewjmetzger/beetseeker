@@ -1,10 +1,13 @@
+#!/usr/bin/env python3
+
 import time
 from collections import deque
-import secrets
+import config
 import download_status
 import download_import
 from datetime import datetime
 
+## main.py
 def print_timestamped_message(message):
     """
     Prints a message with a timestamp.
@@ -12,12 +15,12 @@ def print_timestamped_message(message):
     print(f"{datetime.now()}: {message}")
 
 # Get the initial set of subdirectories
-previous_subdirectories = download_status.get_subdirectories(secrets.DOWNLOADS_DIRECTORY)
+previous_subdirectories = download_status.get_subdirectories(config.DOWNLOADS_DIRECTORY)
 subdirectory_queue = deque()
 
 while True:
     # Get the current set of subdirectories
-    current_subdirectories = download_status.get_subdirectories(secrets.DOWNLOADS_DIRECTORY)
+    current_subdirectories = download_status.get_subdirectories(config.DOWNLOADS_DIRECTORY)
     # Find the new subdirectories
     new_subdirectories = current_subdirectories - previous_subdirectories
     # Add the new subdirectories to the queue

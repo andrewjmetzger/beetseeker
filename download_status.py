@@ -1,6 +1,8 @@
+#!/usr/bin/env python3
+
 import os
 import requests
-import secrets
+import config
 
 def get_subdirectories(directory):
     """
@@ -12,9 +14,9 @@ def get_download_status():
     """
     Returns the download status from the slskd API.
     """
-    url = f"{secrets.SLSKD_URL}/api/v0/transfers/downloads"
+    url = f"{config.SLSKD_URL}/api/v0/transfers/downloads"
     params = {'includeRemoved': 'false'}
-    headers = {'X-API-Key': secrets.SLSKD_API_KEY}
+    headers = {'X-API-Key': config.SLSKD_API_KEY}
     response = requests.get(url, params=params, headers=headers)
     data = response.json()
     return data

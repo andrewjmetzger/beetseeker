@@ -1,6 +1,6 @@
-# Secrets
+# Project-specific
 
-secrets.py
+config.py
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
