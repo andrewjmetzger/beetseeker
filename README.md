@@ -38,7 +38,7 @@ username = "betanin"
 password = "betanin"
 
 [clients]
-api_key = "<generate a random 32-bit key>"
+api_key = "<generate a random key>"
 
 [server]
 num_parallel_jobs = 1
