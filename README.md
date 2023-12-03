@@ -17,7 +17,7 @@ BeetSeeker requires Python 3.7 or higher for `requests`. Using a virtual environ
 pip install -r requirements.txt
 ```
 
-Customize and rename **[example_secrets.py](./example_secrets.py)**: BeetSeeker needs to know the URLs and API keys for `slskd` and `betanin`, plus the path to the "downloads directory. 
+Customize and rename **[example_config.py](./example_config.py)**: BeetSeeker needs to know the URLs and API keys for `slskd` and `betanin`, plus the path to the "downloads directory. 
 
 BeetSeeker does not need direct access to any other files. Instead, BeetSeeker uses APIs, so tt depends on preexisting installs of slskd and betanin, with both APIs enabled and configured. 
 
