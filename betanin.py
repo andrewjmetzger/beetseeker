@@ -1,10 +1,9 @@
 #!/usr/bin/env python3
 
+import os
 import requests
-import urllib.parse
 import config
-from datetime import datetime
-from main import print_timestamped_message
+from slskd import all_downloads_completed, get_download_status
 
 def import_downloads(parent_directory):
     """
@@ -12,12 +11,26 @@ def import_downloads(parent_directory):
     """
     url = f"{config.BETANIN_URL}/api/torrents/"
     headers = {"X-API-Key": config.BETANIN_API_KEY, "Content-Type": "application/x-www-form-urlencoded"}
-    data = {"name": urllib.parse.quote(parent_directory), "path": config.DOWNLOADS_DIRECTORY}
+
+    # Extract the subdirectory name from the parent_directory
+    subdirectory_name = os.path.basename(parent_directory)
+    # Append the subdirectory name to the BETANIN_IMPORT_DIRECTORY
+    betanin_path = f"{config.BETANIN_IMPORT_DIRECTORY}/{subdirectory_name}"
+    print(f"Betanin path: {betanin_path}")
+
+    download_data = get_download_status()
+    all_completed, completed_files, total_files = all_downloads_completed(download_data)
+    if not all_completed:
+        print(f"{completed_files}/{total_files} files downloaded. Waiting for all downloads to complete.")
+        return
+
+    data = {"both": betanin_path}
     response = requests.post(url, headers=headers, data=data)
+
     if response.status_code == 200:
-        print_timestamped_message(f"Yay! I've successfully imported the downloads from {parent_directory}.")
+        print(f"Yay! I've successfully imported the downloads.")
     else:
-        print_timestamped_message(f"Oops! I couldn't import the downloads from {parent_directory}.")
+        print(f"Oops! I couldn't import the downloads.")
 
 def get_download_outcome(download_id):
     """
@@ -28,7 +41,7 @@ def get_download_outcome(download_id):
     response = requests.get(url, headers=headers)
     data = response.json()
     for item in data:
-        print_timestamped_message(f"Here's the stdout from {dldn}: {item['data']}")
+        print(f"Here's the stdout: {item['data']}")
 
 def check_manual_intervention_needed():
     """
@@ -43,10 +56,8 @@ def check_manual_intervention_needed():
     download_status = data['torrents'][0]['status']
     download_name = data['torrents'][0]['name']
 
-    if download_status == "COMPLETED":
-        print_timestamped_message("Yay! Import complete.")
-        return False
-    else:
-        print_timestamped_message(f"Uh-oh! I think betanin needs your input for {download_name}, please check {config.BETANIN_URL}.")
+    if download_status != "COMPLETED":
+        print(f"Uh-oh! I think betanin needs your input, please check {config.BETANIN_URL}.")
         get_download_outcome(download_id)
         return True
+    return False

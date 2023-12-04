@@ -25,9 +25,12 @@ def all_downloads_completed(data):
     """
     Checks if all downloads are completed.
     """
+    total_files = 0
+    completed_files = 0
     for user in data:
         for directory in user['directories']:
             for file in directory['files']:
-                if file['state'] != 'Completed, Succeeded':
-                    return False
-    return True
+                total_files += 1
+                if file['state'] == 'Completed, Succeeded':
+                    completed_files += 1
+    return completed_files == total_files, completed_files, total_files
