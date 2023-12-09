@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  slskd-betanin-connector:
+    image: andrewjmetzger/slskd-betanin-connector:latest
+    container_name: slskd-betanin-connector
+    environment:
+      - SLSKD_BETANIN_CONNECTOR_PORT=8080
+      - DOWNLOADS_DIRECTORY=/path/to/slskd/completed/downloads
+      - SLSKD_URL=http://localhost:5030
+      - SLSKD_API_KEY=your_slskd_api_key
+      - BETANIN_URL=http://localhost:9393
+      - BETANIN_API_KEY=your_betanin_api_key
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
