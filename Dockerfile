@@ -1,11 +1,11 @@
 # Use the official Python image as the base image
 FROM python:3.12
+# Set the working directory in the container
+RUN mkdir -p "/beetseeker"
+WORKDIR ["/beetseeker"]
 
 # Clone the GitHub repository
-RUN git clone https://github.com/andrewjmetzger/beetseeker.git
-
-# Set the working directory in the container
-WORKDIR ["/beetseeker"]
+RUN git clone https://github.com/andrewjmetzger/beetseeker.git "/beetseeker"
 
 # Install project dependencies
 RUN pip install --no-cache-dir -r requirements.txt
