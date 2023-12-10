@@ -1,10 +1,10 @@
 version: '3.8'
 services:
-  slskd-betanin-connector:
-    image: andrewjmetzger/slskd-betanin-connector:latest
-    container_name: slskd-betanin-connector
+  beetseeker:
+    image: ghcr.io/andrewjmetzger/beetseeker:latest
+    container_name: beetseeker
     volumes:
-      - /path/to/config.py:/app/config.py
+      - /path/to/config.py:/beetseeker/config.py
     ports:
-      - "8080:8080"
+      - "8347:8347"
     restart: unless-stopped

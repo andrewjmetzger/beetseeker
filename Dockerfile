@@ -6,7 +6,7 @@ RUN mkdir "/beetseeker"
 WORKDIR ["/beetseeker"]
 
 # Clone the GitHub repository
-RUN git clone https://github.com/andrewjmetzger/slskd-betanin-connector.git .
+RUN git clone https://github.com/andrewjmetzger/beetseeker.git .
 
 # Install project dependencies
 RUN pip install --no-cache-dir -r requirements.txt

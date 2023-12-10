@@ -38,10 +38,16 @@ username = "betanin"
 password = "betanin"
 
 [clients]
-api_key = "<generate a random key>"
+api_key = ""
 
 [server]
 num_parallel_jobs = 1
+
+[notifications.services]
+
+[notifications.strings]
+body = "@ $time. view/use the console at http://127.0.0.1:9393/$console_path"
+title = "[betanin] torrent `$name` $status"
 ```
 
 ## How does BeetSeeker work??
