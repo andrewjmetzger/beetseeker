@@ -14,7 +14,9 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 # Allow the config to be mounted
 VOLUME ["/beetseeker/config.py"]
-RUN chmod +x ./config.py
+
+COPY "./example_config.py" "./config.py"
+RUN chmod +x "./config.py"
 
 # Expose the port the app runs on
 EXPOSE 8347
