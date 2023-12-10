@@ -25,4 +25,3 @@ EXPOSE 8347
 
 # Command to run the application
 ENTRYPOINT ["/bin/sh"]
-CMD [" -c python", "main.py"]
