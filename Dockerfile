@@ -9,6 +9,8 @@ WORKDIR ["/beetseeker"]
 # Clone the GitHub repository
 RUN git clone https://github.com/andrewjmetzger/beetseeker.git .
 
+
+
 # Install project dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
@@ -22,4 +24,5 @@ RUN chmod +x "./config.py"
 EXPOSE 8347
 
 # Command to run the application
-CMD ["python", "main.py"]
+ENTRYPOINT ["/bin/sh"]
+CMD [" -c python", "main.py"]
