@@ -1,6 +1,6 @@
 # BeetSeeker
 
-Automagic beets for Soulseek.
+Automagic beets for your Soulseek beats.
 
 ## What does BeetSeeker do?
 
