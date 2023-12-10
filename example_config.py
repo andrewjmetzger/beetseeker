@@ -3,7 +3,7 @@
 # You must customize this file and rename it to config.py
 
 # The slskd "completed" directory
-SLSKD_DOWNLOADS_DIRECTORY = "/data/ddl/music/complete"
+DOWNLOADS_DIRECTORY = "/data/slskd/music/complete"
 # The path BeetSeeker should watch
 BETANIN_IMPORT_DIRECTORY = "/downloads"
 
