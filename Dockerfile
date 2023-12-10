@@ -4,13 +4,12 @@ FROM python:3.12
 RUN mkdir -p "/beetseeker"
 WORKDIR ["/beetseeker"]
 
-# Clone the GitHub repository
-RUN git clone https://github.com/andrewjmetzger/beetseeker.git .
+
+ADD . /beetseeker
 
 # Install project dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY . /beetseeker
 
 # Allow the config to be mounted
 VOLUME ["/beetseeker/config.py"]
