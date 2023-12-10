@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <!-- Save this file as "/boot/config/plugins/dockerMan/templates-user/my-beetseeker.xml" -->
+  <Name>BeetSeeker</Name>
+  <Repository>ghcr.io/andrewjmetzger/beetseeker</Repository>
+  <Registry>ghcr.io/andrewjmetzger/beetseeker</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://github.com/andrewjmetzger/beetseeker</Support>
+  <Project>https://github.com/andrewjmetzger/beetseeker</Project>
+  <Overview>BeetSeeker leverages the APIs of two self-hosted services:&#xD;
+  - slskd: A browser-based client for Soulseek (the peer-to-peer file sharing system).&#xD;
+  - betanin: A browser-based interface for beets, designed for torrent clients and automation.&#xD;
+&#xD;
+BeetSeeker does not need direct access to any media files. Instead, BeetSeeker uses APIs, so it depends on preexisting installs of slskd and betanin, with both APIs enabled and configured. See the BeetSeeker README for details.</Overview>
+  <Category>MediaApp:Music</Category>
+  <WebUI>http://[IP]:[PORT:8347]</WebUI>
+  <TemplateURL/>
+  <Icon/>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled/>
+  <DonateText/>
+  <DonateLink/>
+  <Requires/>
+  <Config Name="BeetSeeker Configuration" Target="/beetseeker" Default="/mnt/user/appdata/beetseeker" Mode="ro" Description="" Type="Path" Display="always" Required="true" Mask="false">/mnt/cache/appdata/beetseeker</Config>
+  <Config Name="BeetSeeker Debug UI" Target="8347" Default="8347" Mode="tcp" Description="" Type="Port" Display="always" Required="true" Mask="false">8347</Config>
+</Container>
