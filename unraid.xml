@@ -26,6 +26,6 @@ BeetSeeker does not need direct access to any media files. Instead, BeetSeeker u
   <DonateText/>
   <DonateLink/>
   <Requires/>
-  <Config Name="BeetSeeker Configuration" Target="/beetseeker" Default="/mnt/user/appdata/beetseeker" Mode="ro" Description="" Type="Path" Display="always" Required="true" Mask="false">/mnt/cache/appdata/beetseeker</Config>
+  <Config Name="BeetSeeker Configuration" Target="/beetseeker/config.py" Default="/mnt/user/appdata/beetseeker/config.py" Mode="ro" Description="" Type="Path" Display="always" Required="true" Mask="false">/mnt/cache/appdata/beetseeker</Config>
   <Config Name="BeetSeeker Debug UI" Target="8347" Default="8347" Mode="tcp" Description="" Type="Port" Display="always" Required="true" Mask="false">8347</Config>
 </Container>
