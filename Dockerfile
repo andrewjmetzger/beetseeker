@@ -2,13 +2,17 @@
 FROM python:3.12
 
 # Set the working directory in the container
-WORKDIR /app
+RUN mkdir "/beetseeker"
+WORKDIR ["/beetseeker"]
 
 # Clone the GitHub repository
 RUN git clone https://github.com/andrewjmetzger/slskd-betanin-connector.git .
 
 # Install project dependencies
 RUN pip install --no-cache-dir -r requirements.txt
+
+# Allow the config to be mounted
+VOLUME ["/beetseeker"]
 
 # Expose the port the app runs on
 EXPOSE 8347
