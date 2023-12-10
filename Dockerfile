@@ -5,13 +5,12 @@ RUN mkdir -p "/beetseeker"
 WORKDIR ["/beetseeker"]
 
 # Clone the GitHub repository
-RUN git clone https://github.com/andrewjmetzger/beetseeker.git "/beetseeker"
+RUN git clone https://github.com/andrewjmetzger/beetseeker.git .
 
 # Install project dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY "./example_config.py" "./config.py"
-RUN chmod +x "./config.py"
+COPY . /beetseeker
 
 # Allow the config to be mounted
 VOLUME ["/beetseeker/config.py"]
