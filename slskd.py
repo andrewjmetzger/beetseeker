@@ -2,7 +2,7 @@
 
 import os
 import requests
-import config
+from . import config
 
 def get_subdirectories(directory):
     """
