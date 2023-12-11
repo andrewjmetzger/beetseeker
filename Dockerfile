@@ -1,22 +1,7 @@
-# Use the official Python image as the base image
-FROM python:3.12
-# Set the working directory in the container
-RUN mkdir -p "/beetseeker"
-WORKDIR ["/beetseeker"]
+FROM python:3.9-slim-buster
 
+WORKDIR /app
 
-ADD . /beetseeker
+COPY main.py example_config.py slskd.py betanin.py ./
 
-# Install project dependencies
-RUN pip install --no-cache-dir -r requirements.txt
-
-
-# Allow the config to be mounted
-VOLUME ["/beetseeker/config.py"]
-
-
-# Expose the port the app runs on
-EXPOSE 8347
-
-# Command to run the application
-ENTRYPOINT ["python", "main.py"]
+CMD ["python", "main.py"]
