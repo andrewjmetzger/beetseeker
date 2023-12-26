@@ -3,7 +3,7 @@
 import os
 import time
 from collections import deque
-from . import config
+import config
 import slskd 
 import betanin
 

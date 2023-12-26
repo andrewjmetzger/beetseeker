@@ -2,7 +2,7 @@
 
 import os
 import requests
-from . import config
+import config
 from slskd import all_downloads_completed, get_download_status
 
 def import_downloads(parent_directory):
